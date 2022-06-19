@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2022_06_19_160717) do
 
   create_table "menu_items", force: :cascade do |t|
     t.string "name"
-    t.bigint "parent_menu_item_id"
+    t.bigint "_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "state"

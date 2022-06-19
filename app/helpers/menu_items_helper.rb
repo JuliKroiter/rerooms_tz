@@ -5,7 +5,7 @@ module MenuItemsHelper
     roots.each do |root|
       li << content_tag(:li, root.name, class: "menu_li #{root.state}")
       if root.has_child?
-        li << menu_list(root.child_menu_items)
+        li << menu_list(root.children)
       end
     end
 

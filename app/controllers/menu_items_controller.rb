@@ -2,8 +2,7 @@ class MenuItemsController < ApplicationController
   def index
     @root_menu_items = MenuItem.roots
 
-    @q = Ransack::Search.new(MenuItem)
-    search = MenuItem.ransack(params[:q])
-    @menu_items = search.result.total
+    @q = MenuItem.ransack(params[:q])
+    @menu_items = @q.result.total
   end
 end
