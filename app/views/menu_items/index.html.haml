@@ -1,0 +1,17 @@
+%h2 Menu
+%ul
+  = menu_list( @root_menu_items )
+
+%table
+  %tr
+    %th Name
+    %th Parent
+    %th Active
+  - @menu_items.each do |menu_item|
+    %tr
+      %th
+        = menu_item.name
+      %th
+        = menu_item.parent_name
+      %th
+        = menu_item.active
