@@ -6,6 +6,20 @@ class MenuItem < ApplicationRecord
   scope :total, -> { includes(:child_menu_items) }
   scope :roots, -> { total.where(parent_menu_item_id: nil, active: true) }
 
+  state_machine :state, initial: :new do
+    event :creation do
+      transition blocked: :new
+    end
+
+    event :activation do
+      transition new: :active
+    end
+
+    event :blockade do
+      transition [:new, :active] => :blocked
+    end
+  end
+
   def parent_name
     parent_menu_item.try(:name)
   end
