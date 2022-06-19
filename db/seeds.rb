@@ -7,30 +7,30 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 roots = MenuItem.create([
-                            {name: 'Level 1.1', active: true},
-                            {name: 'Level 1.2', active: true},
-                            {name: 'Level 1.3', active: false}
+                            {name: 'Level 1.1'},
+                            {name: 'Level 1.2'},
+                            {name: 'Level 1.3'}
                         ])
 
 roots.each do |root_1|
   root_1.child_menu_items.create([
-                                     {name: "Level 2.#{root_1.id}.1", active: true},
-                                     {name: "Level 2.#{root_1.id}.2", active: true},
-                                     {name: "Level 2.#{root_1.id}.3", active: false}
+                                     {name: "Level 2.#{root_1.id}.1"},
+                                     {name: "Level 2.#{root_1.id}.2"},
+                                     {name: "Level 2.#{root_1.id}.3"}
                                  ])
 
   root_1.child_menu_items.each do |root_2|
     root_2.child_menu_items.create([
-                                       {name: "Level 3.#{root_2.id}.1", active: true},
-                                       {name: "Level 3.#{root_2.id}.2", active: true},
-                                       {name: "Level 3.#{root_2.id}.3", active: false}
+                                       {name: "Level 3.#{root_2.id}.1"},
+                                       {name: "Level 3.#{root_2.id}.2"},
+                                       {name: "Level 3.#{root_2.id}.3"}
                                    ])
 
     root_2.child_menu_items.each do |root_3|
       root_3.child_menu_items.create([
-                                         {name: "Level 4.#{root_3.id}.1", active: true},
-                                         {name: "Level 4.#{root_3.id}.2", active: true},
-                                         {name: "Level 4.#{root_3.id}.3", active: false}
+                                         {name: "Level 4.#{root_3.id}.1"},
+                                         {name: "Level 4.#{root_3.id}.2"},
+                                         {name: "Level 4.#{root_3.id}.3"}
                                      ])
     end
   end

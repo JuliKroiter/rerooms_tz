@@ -1,10 +1,10 @@
 class MenuItem < ApplicationRecord
   belongs_to :parent_menu_item, optional: true, class_name: 'MenuItem'
 
-  has_many :child_menu_items, -> { where(active: true) }, class_name: 'MenuItem', foreign_key: 'parent_menu_item_id'
+  has_many :child_menu_items, class_name: 'MenuItem', foreign_key: 'parent_menu_item_id'
 
   scope :total, -> { includes(:child_menu_items) }
-  scope :roots, -> { total.where(parent_menu_item_id: nil, active: true) }
+  scope :roots, -> { total.where(parent_menu_item_id: nil) }
 
   state_machine :state, initial: :new do
     event :creation do
