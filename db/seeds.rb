@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Create nested items
 roots = MenuItem.create([
                             {name: 'Level 1.1'},
                             {name: 'Level 1.2'},
@@ -15,23 +16,28 @@ roots = MenuItem.create([
 roots.each do |root_1|
   root_1.child_menu_items.create([
                                      {name: "Level 2.#{root_1.id}.1"},
-                                     {name: "Level 2.#{root_1.id}.2"},
                                      {name: "Level 2.#{root_1.id}.3"}
                                  ])
 
   root_1.child_menu_items.each do |root_2|
     root_2.child_menu_items.create([
                                        {name: "Level 3.#{root_2.id}.1"},
-                                       {name: "Level 3.#{root_2.id}.2"},
-                                       {name: "Level 3.#{root_2.id}.3"}
                                    ])
 
     root_2.child_menu_items.each do |root_3|
       root_3.child_menu_items.create([
                                          {name: "Level 4.#{root_3.id}.1"},
-                                         {name: "Level 4.#{root_3.id}.2"},
-                                         {name: "Level 4.#{root_3.id}.3"}
                                      ])
     end
   end
 end
+
+# Create active state
+item = MenuItem.new(name: 'Test State')
+item.activation
+item.save
+
+# Create blocked state
+item = MenuItem.new(name: 'Test State')
+item.blockade
+item.save
