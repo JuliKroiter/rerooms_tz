@@ -1,15 +1,15 @@
 %h2 Menu
 
-%ul
-  = menu_list( @root_menu_items )
+= menu_list( @root_menu_items )
 
 = search_form_for @q, url: root_path do |f|
-  = f.label :name_or_state_or_parent_menu_item_name_cont
-  = f.search_field :name_or_state_or_parent_menu_item_name_cont
-= link_to 'Clear search', root_path
+  = f.search_field :name_or_state_or_parent_menu_item_name_cont,
+  value: params[:q].values,
+  class: 'table_search',
+  placeholder: 'Search'
 
 %table
-  %tr
+  %tr.header
     %th Name
     %th State
     %th Parent
