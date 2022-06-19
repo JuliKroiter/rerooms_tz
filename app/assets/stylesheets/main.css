@@ -28,3 +28,15 @@ tr.header, tr:hover {
     border: 1px solid #ddd;
     margin-bottom: 12px;
 }
+
+.menu_ul .menu_li.new {
+    background-color: yellow;
+}
+
+.menu_ul .menu_li.active {
+    background-color: green;
+}
+
+.menu_ul .menu_li.blocked {
+    background-color: red;
+}
