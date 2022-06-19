@@ -3,4 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'menu_items#index'
 
+  namespace :api do
+    namespace :v1 do
+      resources :menu_items, only: [:index]
+    end
+  end
 end

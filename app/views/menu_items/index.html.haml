@@ -1,10 +1,12 @@
 %h2 Menu
+= link_to 'Get Api all', api_v1_menu_items_path
+= link_to 'Get Api active', api_v1_menu_items_path(state: 'active')
 
 = menu_list( @root_menu_items )
 
 = search_form_for @q, url: root_path do |f|
   = f.search_field :name_or_state_or_parent_menu_item_name_cont,
-  value: params[:q].values,
+  value: params[:q].try(:values),
   class: 'table_search',
   placeholder: 'Search'
 
