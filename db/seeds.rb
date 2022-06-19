@@ -14,18 +14,18 @@ roots = MenuItem.create([
                         ])
 
 roots.each do |root_1|
-  root_1.child_menu_items.create([
+  root_1.children.create([
                                      {name: "Level 2.#{root_1.id}.1"},
                                      {name: "Level 2.#{root_1.id}.3"}
                                  ])
 
-  root_1.child_menu_items.each do |root_2|
-    root_2.child_menu_items.create([
+  root_1.children.each do |root_2|
+    root_2.children.create([
                                        {name: "Level 3.#{root_2.id}.1"},
                                    ])
 
-    root_2.child_menu_items.each do |root_3|
-      root_3.child_menu_items.create([
+    root_2.children.each do |root_3|
+      root_3.children.create([
                                          {name: "Level 4.#{root_3.id}.1"},
                                      ])
     end
