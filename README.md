@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ТЗ: https://docs.google.com/document/d/1VMwr4XIbDxUmvcLhKLH5PdiJCFo7CK3mJ4p4DubZDYs/edit
 
-Things you may want to cover:
+Production: https://sleepy-tor-49579.herokuapp.com/
 
-* Ruby version
+* ruby: 2.6.2
 
-* System dependencies
+* rails: 5.2.8
 
-* Configuration
+* DB: PostgreSQL
 
-* Database creation
+Для старта приложения: 
 
-* Database initialization
+* Добавить /config/secrets.yml
 
-* How to run the test suite
+* Добавить /config/database.yml
 
-* Services (job queues, cache servers, search engines, etc.)
+* run rake db:create
 
-* Deployment instructions
+* run rake db:migrate
 
-* ...
+* run rake db:seed
+
+* run server
+
+API: 
+
+GET /api/v1/menu_items -> Все пункты меню
+GET /api/v1/menu_items?state=active -> Только активные пункты меню
