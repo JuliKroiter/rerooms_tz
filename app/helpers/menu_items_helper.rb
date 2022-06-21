@@ -3,12 +3,14 @@ module MenuItemsHelper
     li = String.new
 
     roots.each do |root|
-      li << content_tag(:li, root.name, class: "menu_li #{root.state}")
-      if root.has_child?
-        li << menu_list(root.children)
-      end
+      li << content_tag(:li, menu_name(root), class: "menu_li #{root.state}")
+      li << menu_list(root.children) if root.has_child?
     end
 
     content_tag :ul, li.html_safe, class: 'menu_ul'
+  end
+
+  def menu_name(menu)
+    "#{menu.name}(#{menu.children.length})"
   end
 end
